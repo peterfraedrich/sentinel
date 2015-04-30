@@ -55,7 +55,7 @@
     // ============= API ======================= //
 
     app.post('/', function (req, res) {
-      var jsonData = req.body;
+      var jsonData = JSON.parse(req.body);
       console.log(jsonData);
       res.end('OK');
       auth.auth.findone({'clientID': jsonData.clientID}, function(req, client) {
