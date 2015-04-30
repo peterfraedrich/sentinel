@@ -64,8 +64,17 @@
 
     app.get('/data', function (req, res) {
 
-        data = db.agents.find()
-        res.send(data)
+        data = db.agents.find({}, function (err, ipaddr) {
+          if(err || !ipaddr) {
+            res.writeHead(200,{'Content-Type' : 'application/text'});
+            res.end('there was an error accessing the db')
+          }
+          else {
+            res.writeHead(200, {'Content-Type' : 'application/json'});
+            res.end(data);
+          };
+        });
+        
 
     });
 
