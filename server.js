@@ -64,10 +64,8 @@
 
     app.get('/data', function (req, res) {
 
-      while(true) {
         data = db.agents.find()
         res.send(data)
-      }
 
     });
 
