@@ -73,8 +73,11 @@
             res.writeHead(200, {'Content-Type' : 'application/json'});
             str = '['
             ipaddr.forEach( function(row) {
-              str = str + '{ "ipaddr" :' + row.ipaddr + ' "customerID" :' + row.customerID + '}';
+              str = str + '{ "ipaddr" :' + row.ipaddr + ' "customerID" :' + row.customerID + '"disk" :' + row.disk + '}';
             })
+            str = str.trim();
+            str = str.substring(0,str.length-1);
+            str = str + ']';
             res.end(str);
           };
         });
