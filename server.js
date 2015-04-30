@@ -71,7 +71,10 @@
           }
           else {
             res.writeHead(200, {'Content-Type' : 'application/json'});
-            res.end(data);
+            ipaddr.forEach( function(row) {
+              str = str + '{ "ipaddr" :' + row.ipaddr + ' "customerID" :' + row.customerID + '}';
+            })
+            res.end(str);
           };
         });
         
