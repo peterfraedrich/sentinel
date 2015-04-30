@@ -58,7 +58,7 @@
       console.log(jsonData);
       res.end('OK');
 
-      db.agents.save({jsonData});
+      db.agents.save(jsonData);
 
     });
 
