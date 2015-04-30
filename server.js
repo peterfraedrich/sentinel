@@ -55,6 +55,7 @@
     // ============= API ======================= //
 
     app.post('/', function (req, res) {
+      console.log(req.body.mydata);
       var jsonData = JSON.parse(req.body.mydata);
       console.log(jsonData);
       res.end('OK');
