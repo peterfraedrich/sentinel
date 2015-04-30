@@ -51,6 +51,15 @@
     app.use(express.static(path.join(application_root, "public")));
 
 
+    // ============= API ======================= //
+
+    app.post('/', function (req, res) {
+      var jsonData = JSON.parse(req.body);
+      console.log(jsonData);
+      res.end('OK');
+    });
+
+
 
     // ============= LISTEN ==================== //
 
