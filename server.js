@@ -65,7 +65,8 @@
     app.get('/data', function (req, res) {
 
       while(true) {
-        res.send(db.agents.find())
+        data = db.agents.find()
+        res.send(data)
       }
 
     });
