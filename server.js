@@ -18,9 +18,9 @@
         methodOverride = require('method-override'),
         errorhandler = require('errorhandler'),
             path = require('path');
-            //var databaseUrl = '127.0.0.1:27017/codex';
-    //var collections = ['entries'];
-    //var db = require('mongojs').connect(databaseUrl, collections);
+            var databaseUrl = '127.0.0.1:27017/sentinel';
+    var collections = ['agents'];
+    var db = require('mongojs').connect(databaseUrl, collections);
         var app = express();
   
     var httpPort = 80;
@@ -53,10 +53,13 @@
 
     // ============= API ======================= //
 
-    app.post('/', function (req, res) {
-      //var jsonData = JSON.parse(req.body);
-      console.log(req.body);
+    app.post('/agent-checkin', function (req, res) {
+      var jsonData = req.body;
+      console.log(jsonData);
       res.end('OK');
+
+      db.agents.save({jsonData});
+
     });
 
 
