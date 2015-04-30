@@ -68,7 +68,6 @@ connect ()
 console.log('Server listening on port 80');
 app.listen(apiPort);
 console.log('API listening on port 667');
-log("001","The sever started up successfully.");
 
 
 // EOF
