@@ -53,7 +53,7 @@
 
     // ============= API ======================= //
 
-    app.post('/agent-checkin', function (req, res) {
+    app.post('/', function (req, res) {
       var jsonData = req.body;
       console.log(jsonData);
       res.end('OK');
