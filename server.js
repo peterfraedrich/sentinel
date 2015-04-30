@@ -21,6 +21,7 @@
             var databaseUrl = '127.0.0.1:27017/sentinel';
     var collections = ['agents'];
     var db = require('mongojs').connect(databaseUrl, collections);
+    var auth = require('mongojs').connect(databaseUrl, ['clients']);
         var app = express();
   
     var httpPort = 80;
@@ -57,8 +58,16 @@
       var jsonData = req.body;
       console.log(jsonData);
       res.end('OK');
+      auth.auth.findone({'clientID': jsonData.clientID}, function(req, client) {
+        if (err || !client) {
+          res.send('client not authorized')
+        } else {
+          db.agents.save(jsonData);
+        };
 
-      db.agents.save(jsonData);
+      });
+
+      
 
     });
 
@@ -71,7 +80,7 @@
           }
           else {
             res.writeHead(200, {'Content-Type' : 'application/json'});
-            str = ' '
+            str = ''
             ipaddr.forEach( function(row) {
               str = str + row + '\n';
             })
