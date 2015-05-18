@@ -6,8 +6,33 @@
 </head>
 
 <body>
+	TIMESTAMP: record.timestamp
+	
 	IP Address: record.ipaddr
-	CPU: record.cpu.cpu_count
+
+	CPUs: record.cpu.cpu_count
+	CPU %: record.cpu.cpu_total
+	CPU 1: record.cpu.cpu_percpu.cpu1
+	CPU 2: record.cpu.cpu_percpu.cpu2
+	CPU 3: record.cpu.cpu_percpu.cpu3 
+	CPU 4: record.cpu.cpu_percpu.cpu4
+
+	RAM Total: record.ram.ram_phystotal
+	RAM Percent: record.ram.ram_physpercent
+	RAM Free: record.ram.ram_physfree
+
+	Swap Total: record.ram.ram_swaptotal
+	Swap Percent: record.ram.ram_swappercent
+	Swap Free: record.ram.ram_swapfree
+
+	Disks: record.disk.disk_info.disk_count
+	Disk 1 Total: record.disk.disk_info.disk0.disk_total
+	Disk 1 %: record.disk.disk_info.disk0.disk_percent
+	Disk 1 Used: record.disk.disk_info.disk0.disk_used
+	Disk 1 Free: record.disk.disk_info.disk0.disk_free
+	Disk 1 Path: record.disk.disk_info.disk0.dev
+
+
 </body>
 
 </html>
