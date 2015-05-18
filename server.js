@@ -84,8 +84,7 @@
           if(err || !record) {
             res.writeHead(200,{'Content-Type' : 'application/text'});
             res.end('there was an error accessing the db')
-          }
-          else {
+          } else {
             res.writeHead(200, {'Content-Type' : 'application/json'});
             console.log(record.ipaddr)
             fs.readFileSync('form.html', function (err, data) {
@@ -96,7 +95,6 @@
             });
             
             //res.end(str);
-          };
         });
         
 
