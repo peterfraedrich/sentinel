@@ -86,12 +86,9 @@
             res.end('there was an error accessing the db')
           } else {
             res.writeHead(200, {'Content-Type' : 'application/json'});
-            console.log(record.ipaddr)
-            fn = fs.openSync('form.html','r');
-            fs.readFileSync(fn, function (err, data) {
-                if (err) throw err;
-                console.log(data);
-                res.end();
+            console.log(record)
+            data = "<!DOCTYPE html><head><title>data-response</title></head><body>IP Address: "+record.ipaddr+"<br>CPU: "+record.cpu.cpu_count"+</body></html>"
+            res.end(data);
             });
           };
         });
