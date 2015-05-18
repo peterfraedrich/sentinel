@@ -91,13 +91,9 @@
                 if (err) throw err;
                 console.log(data);
                 res.end();
-              });
             });
-            
-            //res.end(str);
+          };
         });
-        
-
     });
 
 
