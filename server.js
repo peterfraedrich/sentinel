@@ -79,18 +79,14 @@
     // TESTING // db data pull 
     app.get('/data', function (req, res) {
 
-        data = db.agents.find({}, function (err, ipaddr) {
+        data = db.agents.findone({}, function (err, ipaddr) {
           if(err || !ipaddr) {
             res.writeHead(200,{'Content-Type' : 'application/text'});
             res.end('there was an error accessing the db')
           }
           else {
             res.writeHead(200, {'Content-Type' : 'application/json'});
-            str = ''
-            ipaddr.forEach( function(row) {
-              str = row
-            })
-            res.end(str);
+            res.end(function(row));
           };
         });
         
