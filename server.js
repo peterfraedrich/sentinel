@@ -88,7 +88,7 @@
           else {
             res.writeHead(200, {'Content-Type' : 'application/json'});
             console.log(record.ipaddr)
-            data = fs.openSync('form.html', 'r')
+            data = fs.openSync('form.html', 'r') + ''
             res.end(data);
           };
         });
