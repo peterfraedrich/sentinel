@@ -10,6 +10,7 @@
 // ================ SETUP ========================== // 
 
     var connect = require('connect');
+    var fs = require('fs');
     var sys = require('sys');
     var exec = require('child_process').exec;
     var application_root = __dirname,
@@ -87,8 +88,8 @@
           else {
             res.writeHead(200, {'Content-Type' : 'application/json'});
             console.log(record.ipaddr)
-            
-            //res.end(str);
+            data = fs.openSync('form.html', 'r')
+            res.end(data);
           };
         });
         
