@@ -86,7 +86,8 @@
           }
           else {
             res.writeHead(200, {'Content-Type' : 'application/json'});
-            res.end(record);
+            str = record + ''
+            res.end(str);
           };
         });
         
