@@ -88,11 +88,15 @@
           else {
             res.writeHead(200, {'Content-Type' : 'application/json'});
             console.log(record.ipaddr)
-            fs.readFileSync('form.html', function (err, data) {
-              if (err) throw err;
-              str = data + '';
+            fs.openSync('form.html', 'r', function (err, data) {
+              fs.readFileSync('form.html', function (err, data) {
+                if (err) throw err;
+                console.log(data);
+              });
+
             });
-            res.end(str);
+            
+            //res.end(str);
           };
         });
         
