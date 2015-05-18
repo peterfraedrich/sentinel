@@ -90,8 +90,8 @@
             console.log(record.ipaddr)
             fs.readFileSync('form.html', function (err, data) {
               if (err) throw err;
-              str = data + ''
-            })
+              str = data + '';
+            });
             res.end(str);
           };
         });
