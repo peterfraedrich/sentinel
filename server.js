@@ -86,7 +86,7 @@
             res.end('there was an error accessing the db')
           } else {
             res.writeHead(200, {'Content-Type' : 'text/html'});
-            console.log(record)
+            console.log(record.disk.disk_info.disk0)
             data = "<!DOCTYPE html><head><title>data-response</title></head><body>IP Address: "+record.ipaddr+"<br>CPU: "+record.cpu.cpu_count+"</body></html>"
             res.end(data);
             };
