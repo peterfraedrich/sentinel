@@ -87,7 +87,7 @@
           } else {
             res.writeHead(200, {'Content-Type' : 'text/html'});
             console.log(record.disk.disk_info.disk0)
-            data = "<!DOCTYPE html>
+            data = """<!DOCTYPE html>
                     <head>
                     <title>data-response</title>
                     </head>
@@ -114,7 +114,7 @@
                       Disk 1 Path: "+record.disk.disk_info.disk0.dev+"<br>
                     </body>
                     </html>
-                    "
+                    """
             res.end(data);
             };
         });
