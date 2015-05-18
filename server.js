@@ -87,7 +87,34 @@
           } else {
             res.writeHead(200, {'Content-Type' : 'text/html'});
             console.log(record.disk.disk_info.disk0)
-            data = fs.readFileSync('form.html','ascii')
+            data = "<!DOCTYPE html>
+                    <head>
+                    <title>data-response</title>
+                    </head>
+                    <body>
+                      TIMESTAMP: "+record.timestamp+"<br><br>
+                      IP Address: "+record.ipaddr+"<br><br>
+                      CPUs: "+record.cpu.cpu_count+"<br>
+                      CPU %: "+record.cpu.cpu_total+"<br>
+                      CPU 1: "+record.cpu.cpu_percpu.cpu1+"<br>
+                      CPU 2: "+record.cpu.cpu_percpu.cpu2+"<br>
+                      CPU 3: "+record.cpu.cpu_percpu.cpu3+" <br>
+                      CPU 4: "+record.cpu.cpu_percpu.cpu4+"<br><br>
+                      RAM Total: "+record.ram.ram_phystotal+"<br>
+                      RAM Percent: "+record.ram.ram_physpercent+"<br>
+                      RAM Free: "+record.ram.ram_physfree+"<br><br>
+                      Swap Total: "+record.ram.ram_swaptotal+"<br>
+                      Swap Percent: "+record.ram.ram_swappercent+"<br>
+                      Swap Free: "+record.ram.ram_swapfree+"<br><br>
+                      Disks: "+record.disk.disk_info.disk_count+"<br>
+                      Disk 1 Total: "+record.disk.disk_info.disk0.disk_total+"<br>
+                      Disk 1 %: "+record.disk.disk_info.disk0.disk_percent+"<br>
+                      Disk 1 Used: "+record.disk.disk_info.disk0.disk_used+"<br>
+                      Disk 1 Free: "+record.disk.disk_info.disk0.disk_free+"<br>
+                      Disk 1 Path: "+record.disk.disk_info.disk0.dev+"<br>
+                    </body>
+                    </html>
+                    "
             res.end(data);
             };
         });
