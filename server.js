@@ -89,7 +89,7 @@
             console.log(record)
             data = "<!DOCTYPE html><head><title>data-response</title></head><body>IP Address: "+record.ipaddr+"<br>CPU: "+record.cpu.cpu_count+"</body></html>"
             res.end(data);
-            });
+            };
         });
 
 
