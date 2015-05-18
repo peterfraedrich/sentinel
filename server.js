@@ -79,7 +79,7 @@
     // TESTING // db data pull 
     app.get('/data', function (req, res) {
 
-        data = db.agents.findOne({}, function (err, record) {
+        data = db.agents.findOne({ipaddr : "10.10.2.6"}, function (err, record) {
           if(err || !record) {
             res.writeHead(200,{'Content-Type' : 'application/text'});
             res.end('there was an error accessing the db')
