@@ -86,10 +86,9 @@
           }
           else {
             res.writeHead(200, {'Content-Type' : 'application/json'});
-            console.log(record)
-
-            str = record + ''
-            res.end(str);
+            console.log(record.ipaddr)
+            
+            //res.end(str);
           };
         });
         
