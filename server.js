@@ -92,6 +92,10 @@
 
     });
 
+    app.get('/api', function (req, res) {
+      res.end('API is up.');
+    });
+
 
 
     // ============= LISTEN ==================== //
