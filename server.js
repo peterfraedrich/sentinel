@@ -54,6 +54,12 @@
 
     // ============= API ======================= //
 
+    // API Test
+    app.get('/api', function (req, res) {
+      res.end('API is up.');
+    });
+
+    // sentinel agent data push target
     app.post('/', function (req, res) {
       console.log(req.body.mydata);
       var jsonData = JSON.parse(req.body.mydata);
@@ -68,10 +74,9 @@
 
       });
 
-      
-
     });
 
+    // TESTING // db data pull 
     app.get('/data', function (req, res) {
 
         data = db.agents.find({}, function (err, ipaddr) {
@@ -83,7 +88,7 @@
             res.writeHead(200, {'Content-Type' : 'application/json'});
             str = ''
             ipaddr.forEach( function(row) {
-              str = str + row + '\n';
+              str = row
             })
             res.end(str);
           };
@@ -92,9 +97,7 @@
 
     });
 
-    app.get('/api', function (req, res) {
-      res.end('API is up.');
-    });
+
 
 
 
