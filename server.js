@@ -86,7 +86,7 @@
           }
           else {
             res.writeHead(200, {'Content-Type' : 'application/json'});
-            console.write(record)
+            console.log(record)
 
             str = record + ''
             res.end(str);
